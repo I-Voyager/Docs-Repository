@@ -24,50 +24,39 @@
 ### _Send/Receive Contract_
  100 words
 
-Free example "Send To" dapp (technically send/receive but simplified to "Send To")
+Example "Send To" dapp (technically send/receive but simplified to "Send To")
 
  [Concept] Send To first determines who the "to" is by querying the chat and accepting input from the receiver in the chat; then deploys the "send" order to the specified wallet, drawing funds from the wallet specified by the user.
 
  [Requirement] "To" function and adding that information under Receiver. 
 
- [Exmaple To specification]
-``` [Upon execution] Send to chat "Receiver agrees to receive contract?"
-``` [Upon "yes"] display text "Please input a single word for your name up to 214 characters and your public key and place a space between them and hit enter." Allow user to submit text
-``` [Upon correct (one name, a space, one public key) input] Create class for "user_name" and give it "public_key", then display text "is your name "user_name" and is your public key "public_key? [Y/N]" and wait for input.
-``` [Upon "Y" or "Yes"]
-``` [Upon error] Display text. "Entry invalid. Please try again." and a repeat of the unfulfilled prompt.
+ [Example "To" specification] (add ``` later, was interfering)
+[Upon execution] Send to chat "Receiver agrees to receive contract?"
+[Upon "yes"] display text "Please input a single word for your name up to 214 characters and your public key and place a space between them and hit enter." Allow user to submit text
+[Upon correct (one name, a space, one public key) input] Create class for "user_name" and give it "public_key", then display text "is your name "user_name" and is your public key "public_key? [Y/N]" and wait for input.
+[Upon "Y" or "Yes"]
+[Upon error] Display text. "Entry invalid. Please try again." and a repeat of the unfulfilled prompt.
 
  [Example Send contract]
-```contract Sender {
-``` function send(address _receiver) payable {
-```   _receiver.send(msg.value);
-``` }
-```}
-```contract Receiver {
-``` uint public balance = 0;
-``` event Receive(uint value);
-```
-``` function () payable {
-```   Receive(msg.value);
-``` }
-```}
+contract Sender {
+function send(address _receiver) payable {
+   _receiver.send(msg.value);
+ }
+}
+contract Receiver {
+ uint public balance = 0;
+ event Receive(uint value);
+ function () payable {
+   Receive(msg.value);
+ }
+}
 
 ### _2nd Contract_
  100 words
-```
-```
-```
-```
-```
-```
+
 ### _3rd Contract_
  100 words
-```
-```
-```
-```
-```
-```
+
 
 ## 4. Tools
  50 words
@@ -92,12 +81,7 @@ The dapp template interacts with the Pangea CLI, SDK. Users set the truffle.js o
  50 words
 #### App.js
  50 words
-```
-```
-```
-```
-```
-```
+
 ### _CLI_
 eslint, travis and npm, cli and node.js; then, CLIactions, libp2pBundle, prompt's the Schemas, some utils as well, and a webpac; then index. Reading is complete. Large set of functions provided by the CLI seem to at once provide test nodes, others seem to declare certain functions like setting passwords or certain keys. The CLI is a larger, more complex program flowing out into the SDK to provide certain functions to dapp developers, and from there into the Pangea VM (clarify VM relationships)
 #### src
@@ -108,12 +92,7 @@ eslint, travis and npm, cli and node.js; then, CLIactions, libp2pBundle, prompt'
 
 #### Eslint.
  50 words
-```
-```
-```
-```
-```
-```
+
 
 ### _SDK_
  Our SDK implements the vmprovider.js in order to provide the ether.js javascript library to the Ethereum network. The es2015 transpiler allows a user to implement js smart contracts on the Ethereum network and especially within Pangea (as far as I can tell) through the babelrc file in any dapp. es2015 provides other functions as well, however... It also seems to implement the UI.
